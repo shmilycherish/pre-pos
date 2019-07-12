@@ -1,5 +1,15 @@
 'use strict';
 
 function countSameElements(collection) {
-  return '实现练习要求，并改写该行代码。';
+  let result = [];
+  countSameElements: for (let element of collection) {
+    for (let object of result) {
+      if (object != undefined && object.key == element) {
+        object.count++;
+        continue countSameElements;
+      }
+    }
+    result.push({key: element, count: 1})
+  }
+  return result;
 }
